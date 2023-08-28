@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
 COLORS:
 
@@ -6,188 +7,176 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
-
 /* Basic Reset */
-
 *,
 *::after,
 *::before {
-    /* Reseta o padding e margin normais do elemento para zero*/
-    padding: 0;
-    margin: 0;
-
-    /* Box sizing faz com que o padding e border  não sejam adicionadas a altura e largura total. */
-    box-sizing: inherit;
+  /* Reseta o padding e margin normais do elemento para zero*/
+  padding: 0;
+  margin: 0;
+  /* Box sizing faz com que o padding e border  não sejam adicionadas a altura e largura total. */
+  box-sizing: inherit;
 }
 
 /* End of Basic Reset */
-
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 body {
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
-    line-height: 1.7;
-    color: #777;
-    padding: 3rem;
-    box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem;
+  box-sizing: border-box;
 }
 
-.header{
-    height: 95vh;
-    position: relative;
-    background-image: linear-gradient(to right bottom,#7ed56fcc, #28b485cc), url(../img/hero.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: top;
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* pontos (eixo x, eixo y)*/
-
+.header {
+  height: 95vh;
+  position: relative;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* pontos (eixo x, eixo y)*/
 }
 
-.header__logo-box{
-    position: absolute;
-    top: 4rem;
-    left: 4rem;
+.header__logo-box {
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
 }
 
 .header__logo {
-    height: 3.5rem;
+  height: 3.5rem;
 }
 
-.header__text-box{
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+.header__text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .heading-primary {
-    backface-visibility: hidden; /* Conserta o erro de animação que treme para cima, esconde a parte de tras de um objeto rotacionado.*/
-    margin-bottom: 6rem;
+  backface-visibility: hidden; /* Conserta o erro de animação que treme para cima, esconde a parte de tras de um objeto rotacionado.*/
+  margin-bottom: 6rem;
 }
 
-.heading-primary > span{
-    display: block;
-    color: white;
-    text-transform: uppercase;
+.heading-primary > span {
+  display: block;
+  color: white;
+  text-transform: uppercase;
 }
 
-.heading-primary--main{
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-    animation: moveInLeft 1s ease-in;
+.heading-primary--main {
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+  animation: moveInLeft 1s ease-in;
 }
 
-.heading-primary--sub{
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.75rem;
-    animation: moveInRight 1s ease-out;
+.heading-primary--sub {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1.75rem;
+  animation: moveInRight 1s ease-out;
 }
 
 /* Header Hero Title Animation */
-
 /* Opacity de 0 para 1 da um efeito de fading para a animação.
  * O 80% da um efeito de bouncing, no caso de moveInLeft, indo de -10rem para esquerda até +1rem para direita e voltando para
  * posição original.
 */
-@keyframes moveInLeft{
-    0% {
-        opacity: 0;
-        transform: translateX(-10rem);
-    }
-
-    80% {
-        transform: translateX(1rem);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+  80% {
+    transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
-
-@keyframes moveInRight{
-    0% {
-        opacity: 0;
-        transform: translateX(10rem);
-    }
-    
-    80% {
-        transform: translateX(-1rem);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+  80% {
+    transform: translateX(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
-
-@keyframes moveInBottom{
-    0% {
-        opacity: 0;
-        transform: translateY(3rem);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
 .btn:link,
 .btn:visited {
-    text-transform: uppercase;
-    text-decoration: none;
-    display: inline-block;
-    padding: 1.5rem 4rem;
-    font-size: 1.6rem;
-    border-radius: 3rem;
-    transition: all .2s ease-out; /* Controla a animação de uma propriedade*/
-    position: relative;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  padding: 1.5rem 4rem;
+  font-size: 1.6rem;
+  border-radius: 3rem;
+  transition: all 0.2s ease-out; /* Controla a animação de uma propriedade*/
+  position: relative;
 }
 
-.btn:hover{
-    transform: translateY(-3px);
-    box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 .btn:active {
-    transform: translateY(1px);
+  transform: translateY(1px);
 }
 
-.btn--white{
-    background-color: white;
-    color: #777;
+.btn--white {
+  background-color: white;
+  color: #777;
 }
 
 .btn::after {
-    content: "";
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-    border-radius: 3rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: all 0.4s;
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 3rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
 }
 
-.btn:hover::after{
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0;
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
 }
 
-.btn--white::after{
-    background-color: white;
+.btn--white::after {
+  background-color: white;
 }
 
 .btn--animated {
-    animation: moveInBottom .5s ease-out .75s backwards;
-    /* Backwards faz com que o elemento tenha os estilos do primeiro frame durante o período de delay. */
+  animation: moveInBottom 0.5s ease-out 0.75s backwards;
+  /* Backwards faz com que o elemento tenha os estilos do primeiro frame durante o período de delay. */
 }
+
+/*# sourceMappingURL=style.css.map */

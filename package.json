@@ -1,0 +1,24 @@
+{
+  "name": "natours",
+  "version": "1.0.0",
+  "description": "Projeto HTML CSS",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "sass sass/main.scss:css/style.css",
+    "watch:sass": "sass --watch sass/main.scss:css/style.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Glenio-Lobo/natours-css.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Glenio-Lobo/natours-css/issues"
+  },
+  "homepage": "https://github.com/Glenio-Lobo/natours-css#readme",
+  "devDependencies": {
+    "sass": "^1.66.1"
+  }
+}
