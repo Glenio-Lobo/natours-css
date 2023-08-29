@@ -1,0 +1,26 @@
+@use '../abstracts/variables' as var;
+
+.heading-primary {
+    backface-visibility: hidden; /* Conserta o erro de animação que treme para cima, esconde a parte de tras de um objeto rotacionado.*/
+    margin-bottom: 6rem;
+
+    span {
+        display: block;
+        color: var.$color-white;
+        text-transform: uppercase;
+    }
+
+    &--main{
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem;
+        animation: moveInLeft 1s ease-in;
+    }
+
+    &--sub{
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.75rem;
+        animation: moveInRight 1s ease-out;
+    }
+}

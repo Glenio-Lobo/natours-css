@@ -1,0 +1,49 @@
+/* Header Hero Title Animation */
+
+/* Opacity de 0 para 1 da um efeito de fading para a animação.
+ * O 80% da um efeito de bouncing, no caso de moveInLeft, indo de -10rem para esquerda até +1rem para direita e voltando para
+ * posição original.
+*/
+@keyframes moveInLeft{
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+
+    80% {
+        transform: translateX(1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInRight{
+    0% {
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+    
+    80% {
+        transform: translateX(-1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInBottom{
+    0% {
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
