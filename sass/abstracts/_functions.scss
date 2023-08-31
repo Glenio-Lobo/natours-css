@@ -1,0 +1,16 @@
+@use '../abstracts/variables' as var;
+
+/*
+ * colWidthCalculator
+ * [ Descrição ] Calcula a largura da coluna do grid-test.
+ *
+ * [ Parâmetros ]
+ * - $colSpan: A quantidade de colunas que a célula irá ocupar.
+ * - $colQuantity: Quantidade total de Colunas.
+ *
+*/
+@function colWidthCalculator($colSpan, $colQuantity){
+    $result: calc(#{$colSpan} * ( (100% - (#{$colQuantity} - 1) * #{var.$gutter-horizontal})/#{$colQuantity}) + ( (#{$colSpan} - 1) * #{var.$gutter-horizontal}));
+
+    @return $result;
+}

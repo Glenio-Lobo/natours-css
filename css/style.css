@@ -7,6 +7,15 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+/*
+ * colWidthCalculator
+ * [ Descrição ] Calcula a largura da coluna do grid-test.
+ *
+ * [ Parâmetros ]
+ * - $colSpan: A quantidade de colunas que a célula irá ocupar.
+ * - $colQuantity: Quantidade total de Colunas.
+ *
+*/
 /* Header Hero Title Animation */
 /* Opacity de 0 para 1 da um efeito de fading para a animação.
  * O 80% da um efeito de bouncing, no caso de moveInLeft, indo de -10rem para esquerda até +1rem para direita e voltando para
@@ -48,6 +57,22 @@ Dark green: #28b485
     transform: translateY(0);
   }
 }
+.u-center-text {
+  text-align: center;
+}
+
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem;
+}
+
+.u-margin-bottom-medium {
+  margin-bottom: 4rem;
+}
+
+.u-margin-bottom-big {
+  margin-bottom: 8rem;
+}
+
 .heading-primary {
   backface-visibility: hidden; /* Conserta o erro de animação que treme para cima, esconde a parte de tras de um objeto rotacionado.*/
   margin-bottom: 6rem;
@@ -68,6 +93,36 @@ Dark green: #28b485
   font-weight: 700;
   letter-spacing: 1.75rem;
   animation: moveInRight 1s ease-out;
+}
+
+.heading-secundary {
+  text-transform: uppercase;
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: 0.2rem;
+  display: inline-block;
+  background-image: linear-gradient(to right, #7ed56f, #28b485);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transition: all 0.2s;
+}
+.heading-secundary:hover {
+  transform: skewY(2deg) skewX(15deg) scale(1.1);
+  text-shadow: 0.5rem 1rem 2rem rgba(119, 119, 119, 0.2);
+}
+
+.heading-tertiary {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.paragraph {
+  font-size: 1.6rem;
+}
+.paragraph:not(:last-child) {
+  margin-bottom: 3rem;
 }
 
 /* Basic Reset */
@@ -141,6 +196,59 @@ body {
   /* Backwards faz com que o elemento tenha os estilos do primeiro frame durante o período de delay. */
 }
 
+.btn-text:link, .btn-text:visited {
+  color: #55c57a;
+  display: inline-block; /* Elemento ocupa apenas o espaço necessário, diferente de block que ocupa todo o espaço do pai */
+  text-decoration: none;
+  border-bottom: 1px solid #55c57a;
+  padding: 3px;
+  font-size: 1.6rem;
+  transition: all 0.4s;
+}
+.btn-text:hover {
+  color: #fff;
+  background-color: #55c57a;
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+.btn-text:active {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  transform: translateY(0);
+}
+
+.composition {
+  position: relative;
+}
+.composition__photo {
+  width: 55%;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
+  border-radius: 2px;
+  position: absolute;
+  transition: all 0.4s;
+  outline-offset: 2rem;
+}
+.composition__photo--p1 {
+  left: 0;
+  top: -2rem;
+}
+.composition__photo--p2 {
+  right: 0;
+  top: 2rem;
+}
+.composition__photo--p3 {
+  left: 20%;
+  top: 10rem;
+}
+.composition__photo:hover {
+  outline: 1.5rem solid #55c57a;
+  transform: scale(1.05) translateY(-0.5rem);
+  box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+.composition:hover .composition__photo:not(:hover) {
+  transform: scale(0.95);
+}
+
 .header {
   height: 95vh;
   position: relative;
@@ -164,6 +272,53 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+}
+
+.row {
+  max-width: 114rem;
+  margin: 0 auto;
+}
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.row:not(:last-child) {
+  margin-bottom: 8rem;
+}
+.row div[class^=col-] {
+  float: left;
+}
+.row div[class^=col-]:not(:last-child) {
+  margin-right: 6rem;
+}
+.row .col-1-of-2 {
+  width: calc(1 * ( (100% - (2 - 1) * 6rem)/2) + ( (1 - 1) * 6rem));
+}
+.row .col-1-of-3 {
+  width: calc(1 * ( (100% - (3 - 1) * 6rem)/3) + ( (1 - 1) * 6rem));
+}
+.row .col-2-of-3 {
+  width: calc(2 * ( (100% - (3 - 1) * 6rem)/3) + ( (2 - 1) * 6rem));
+}
+.row .col-1-of-4 {
+  width: calc(1 * ( (100% - (4 - 1) * 6rem)/4) + ( (1 - 1) * 6rem));
+}
+.row .col-2-of-4 {
+  width: calc(2 * ( (100% - (4 - 1) * 6rem)/4) + ( (2 - 1) * 6rem));
+}
+.row .col-3-of-4 {
+  width: calc(3 * ( (100% - (4 - 1) * 6rem)/4) + ( (3 - 1) * 6rem));
+}
+.row .col-1-of-5 {
+  width: calc(1 * ( (100% - (5 - 1) * 6rem)/5) + ( (1 - 1) * 6rem));
+}
+
+.section-about {
+  background-color: #f7f7f7;
+  padding-top: 20rem;
+  padding-bottom: 20rem;
+  margin-top: -20vh;
 }
 
 /*# sourceMappingURL=style.css.map */
