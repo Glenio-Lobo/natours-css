@@ -1,0 +1,148 @@
+@use'../abstracts/variables' as var;
+
+.card{
+    // Funcionalidade
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    position: relative;
+    height: 52rem; /* Filho e pai devem ter a mesma altura, pois ao definir absolute a altura colapsa.*/
+
+    &__side{
+        height: 52rem;
+        transition: all .8s ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        backface-visibility: hidden;
+        border-radius: 3px;
+        overflow: hidden;
+        box-shadow: 0 1.5rem 4rem rgba(var.$color-black, .15);
+
+        &--back{
+            transform: rotateY(-180deg);
+
+            &-1{
+                background-image: linear-gradient(to right bottom, var.$color-secondary-light, var.$color-secondary-dark);
+            }
+
+            &-2{
+                background-image: linear-gradient(to right bottom, var.$color-primary-light, var.$color-primary-dark);
+
+            }
+
+            &-3{
+                background-image: linear-gradient(to right bottom, var.$color-tertiary-light, var.$color-tertiary-dark);
+            }
+        }
+    }
+
+    &:hover &__side--front{
+        transform: rotateY(-180deg);
+    }
+
+    &:hover &__side--back{
+        transform: rotateY(0deg);
+    }
+
+    // Estilos do front side
+
+    &__picture{
+        height: 23rem;
+        background-size: cover;
+        background-blend-mode: screen;
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); // Clockwise
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+
+        &--1{
+            background-image: linear-gradient(to right bottom, var.$color-secondary-light, var.$color-secondary-dark), url(../img/nat-5.jpg);
+        }
+
+        &--2{
+            background-image: linear-gradient(to right bottom, var.$color-primary-light, var.$color-primary-dark), url(../img/nat-6.jpg);
+        }
+
+        &--3{
+            background-image: linear-gradient(to right bottom, var.$color-tertiary-light, var.$color-tertiary-dark), url(../img/nat-7.jpg);
+        }
+    }
+
+    &__heading{
+        position: absolute;
+        top: 12rem;
+        right: 2rem;
+        text-align: right;
+        font-weight: 300;
+        text-transform: uppercase;
+        color: var.$color-white;
+        font-size: 2.8rem;
+        width: 75%;
+    }
+
+    &__heading-span{
+        // Box decoration break setado para clone faz com que todos os fragmentos da caixa quebrada recebam os mesmos estilos.
+        // Ex: Box-shadow será aplicado a todos os fragmentos quebrados e não a apenas o fragmento total.
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+        padding: 1rem 1.5rem;
+
+        &--1 {
+            background-image: linear-gradient(to right bottom, rgba(var.$color-secondary-light, .85), rgba(var.$color-secondary-dark, .85))
+        }
+
+        &--2{
+            background-image: linear-gradient(to right bottom, rgba(var.$color-primary-light, .85), rgba(var.$color-primary-dark, .85))
+        }
+
+        &--3{
+            background-image: linear-gradient(to right bottom, rgba(var.$color-tertiary-light, .85), rgba(var.$color-tertiary-dark, .85))
+        }
+    }
+
+    &__details{
+        padding: 3rem;
+        font-size: 1.5rem;
+
+        ul {
+            list-style: none;
+            width: 80%;
+            margin: 0 auto;
+
+            li {
+                text-align: center;
+                padding: 1rem;
+
+                &:not(:last-child){
+                    border-bottom: 1px solid var.$color-grey-light-2;
+                }
+            }
+        }
+        
+    }
+
+    &__cta {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        text-align: center;
+    }
+    
+    &__price-box{
+        color: var.$color-white;
+        text-align: center;
+        margin-bottom: 8rem;
+    }
+
+    &__price-only{
+        text-transform: uppercase;
+        font-size: 1.4rem;
+    }
+
+    &__price-value{
+        font-size: 6rem;
+        font-weight: 100;
+    }
+}
