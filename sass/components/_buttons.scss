@@ -1,6 +1,7 @@
 @use '../abstracts/variables' as var;
 
 .btn {
+    &,
     &:link, 
     &:visited{
         text-transform: uppercase;
@@ -11,13 +12,23 @@
         border-radius: 3rem;
         transition: all .2s ease-out; /* Controla a animação de uma propriedade*/
         position: relative;
+
+        //Change for <button> elements
+        border:none;
+        cursor: pointer;
     }
 
     &:hover{
         transform: translateY(-3px);
         box-shadow: 0 1rem 2rem rgba(var.$color-black,.2);
+
+        &::after{
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
     }
 
+    &:focus,
     &:active{
         transform: translateY(1px);
         box-shadow: 0 0.5rem 1rem rgba(var.$color-black,.2);
@@ -52,11 +63,6 @@
         left: 0;
         z-index: -1;
         transition: all 0.4s;
-    }
-
-    &:hover::after{
-        transform: scaleX(1.4) scaleY(1.6);
-        opacity: 0;
     }
 
     &--animated{
