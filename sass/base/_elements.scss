@@ -1,14 +1,39 @@
 @use '../abstracts/variables' as var;
+@use '../abstracts/mixins' as mixins;
 
 html {
-    font-size: 62.5%;
+    font-size: 62.5%; // 1rem = 10px
+
+    /*
+    Organiza do maior para o menor.
+    Ex: 700 px, ambos tab-land(1200px) e tab-port(900px) irão aplicar pois sao menores que os valores
+    definidos no max-width. Porém o desejado é o tab-port, portanto se colocado após tab-land, os estilos
+    serão aplicados por procedência.
+    */
+
+    @include mixins.responsive(big-desktop){
+        font-size: 75%; //1rem = 12px
+    }
+
+    @include mixins.responsive(tab-land){
+        font-size: 56.25%; // 1rem = 9px
+    }
+
+    @include mixins.responsive(tab-port){
+        font-size: 50%; // 1rem = 8px
+    }
+
+    @include mixins.responsive(phone){
+        font-size: 50%;
+    }
 }
 
 body {
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
-    line-height: 1.7;
-    color: var.$color-grey-dark;
     padding: 3rem;
     box-sizing: border-box;
+
+    @include mixins.responsive(tab-port){
+        padding: 0;
+    }
+
 }
