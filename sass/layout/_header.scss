@@ -2,7 +2,7 @@
 @use '../abstracts/mixins' as mixins;
 
 .header{
-    height: 95vh;
+    height: 85vh;
     position: relative;
     background-image: linear-gradient(
         to right bottom, 
@@ -12,15 +12,21 @@
     );
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: top;
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* pontos (eixo x, eixo y)*/
+    background-position: top;   
 
-    @media (min-resolution: 192dpi) and (min-width: 37.5em),
-        (min-width: 125em)
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)){
+        height: 95vh;
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* pontos (eixo x, eixo y)*/
+    }
+
+    @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+        only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+        only screen and (min-width: 125em)
     {
         background-image: linear-gradient(
             to right bottom, 
-            rgba(var.$color-secondary-light, .8), 
+            rgba(var.$color-primary-light, .8), 
             rgba(var.$color-primary-dark, .8)), 
             url(../img/hero.jpg
         );
