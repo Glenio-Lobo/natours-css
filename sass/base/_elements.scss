@@ -11,10 +11,7 @@ html {
     serão aplicados por procedência.
     */
 
-    @include mixins.responsive(big-desktop){
-        font-size: 75%; //1rem = 12px
-    }
-
+    
     @include mixins.responsive(tab-land){
         font-size: 56.25%; // 1rem = 9px
     }
@@ -22,9 +19,13 @@ html {
     @include mixins.responsive(tab-port){
         font-size: 50%; // 1rem = 8px
     }
-
+    
     @include mixins.responsive(phone){
         font-size: 50%;
+    }
+    
+    @include mixins.responsive(big-desktop){
+        font-size: 75%; //1rem = 12px
     }
 }
 

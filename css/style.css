@@ -84,11 +84,6 @@ $breakpoint argument choices:
 .u-margin-bottom-small {
   margin-bottom: 1.5rem !important;
 }
-@media (max-width: 56.25em) {
-  .u-margin-bottom-small {
-    margin-bottom: 5rem !important;
-  }
-}
 
 .u-margin-bottom-medium {
   margin-bottom: 4rem !important;
@@ -217,11 +212,6 @@ html {
   serão aplicados por procedência.
   */
 }
-@media (max-width: 112.5em) {
-  html {
-    font-size: 75%;
-  }
-}
 @media (max-width: 75em) {
   html {
     font-size: 56.25%;
@@ -235,6 +225,11 @@ html {
 @media (max-width: 37.5em) {
   html {
     font-size: 50%;
+  }
+}
+@media (min-width: 112.5em) {
+  html {
+    font-size: 75%;
   }
 }
 
@@ -836,11 +831,16 @@ body {
 .header {
   height: 95vh;
   position: relative;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero-small.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* pontos (eixo x, eixo y)*/
+}
+@media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+  .header {
+    background-image: linear-gradient(to right bottom, rgba(255, 185, 0, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  }
 }
 @media (max-width: 37.5em) {
   .header {
